@@ -7,6 +7,6 @@ abstract class JsonplaceholderApi {
   /// {@macro jsonplaceholder_api}
   const JsonplaceholderApi();
 
-  /// Provides a [Stream] of all jsonplaceholders.
-  Stream<List<Jsonplaceholder>> getJsonplaceholders();
+  /// Provides a [Future] of all jsonplaceholders.
+  Future<List<Jsonplaceholder>> getJsonplaceholders();
 }
