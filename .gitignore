@@ -48,3 +48,6 @@ packages/**/pubspec.lock
 
 # MacOs related
 **/macos/Flutter/GeneratedPluginRegistrant.*
+
+# Coverage related
+/coverage
