@@ -1,3 +1,10 @@
-# practical_showcase_test
+# Practical Showcase Test
 
-A new Flutter project.
+## Installation
+
+Run this project with
+
+```bash
+  flutter pub get
+  flutter run --release
+```
