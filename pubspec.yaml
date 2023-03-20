@@ -17,17 +17,19 @@ dependencies:
   http: ^0.13.5
   jsonplaceholder_api:
     path: packages/jsonplaceholder_api
+  jsonplaceholder_repository:
+    path: packages/jsonplaceholder_repository
   meta: ^1.8.0
   online_jsonplaceholder_api:
     path: packages/online_jsonplaceholder_api
   stream_transform: ^2.1.0
-  jsonplaceholder_repository:
-    path: packages/jsonplaceholder_repository
 
 dev_dependencies:
+  bloc_test: ^9.1.1
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  mocktail: ^0.3.0
 
 flutter:
   uses-material-design: true

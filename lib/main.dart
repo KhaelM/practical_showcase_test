@@ -19,9 +19,10 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) =>
-                PhotoBloc(context.read<JsonplaceholderRepository>())
-                  ..add(PhotoFetched()),
+            create: (context) => PhotoBloc(
+                context.read<JsonplaceholderRepository>(),
+                itemPerScroll: 20)
+              ..add(const PhotoFetched()),
           ),
           BlocProvider(
             create: (context) => PhotoDetailsBloc(),

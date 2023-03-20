@@ -54,7 +54,7 @@ class _PhotosListState extends State<_PhotosList> {
   }
 
   void _onScroll() {
-    if (_isBottom) context.read<PhotoBloc>().add(PhotoFetched());
+    if (_isBottom) context.read<PhotoBloc>().add(const PhotoFetched());
   }
 
   bool get _isBottom {
