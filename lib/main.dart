@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 PhotoBloc(context.read<JsonplaceholderRepository>())
-                  ..add(PhotoFetched()),
+                  ..add(const PhotoFetched()),
           ),
           BlocProvider(
             create: (context) => PhotoDetailsBloc(),
