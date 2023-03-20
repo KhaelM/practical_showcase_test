@@ -7,6 +7,12 @@ abstract class JsonplaceholderApi {
   /// {@macro jsonplaceholder_api}
   const JsonplaceholderApi();
 
-  /// Provides a [Stream] of all jsonplaceholders.
-  Stream<List<Jsonplaceholder>> getJsonplaceholders();
+  /// Provides a [Future] of all jsonplaceholders.
+  ///
+  /// Throws a [ServerDownException] when response code
+  /// differs from 200
+  Future<List<Jsonplaceholder>> getJsonplaceholders();
 }
+
+/// Error thrown when server response is unexpected.
+class ServerDownException implements Exception {}

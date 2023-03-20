@@ -1,0 +1,17 @@
+name: online_jsonplaceholder_api
+description: Implementation of the JsonplaceholderApi which interacts with the real endpoint
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dependencies:
+  http: ^0.13.5
+  jsonplaceholder_api:
+    path: ../jsonplaceholder_api
+
+dev_dependencies:
+  mocktail: ^0.3.0
+  test: ^1.19.2
+  very_good_analysis: ^4.0.0

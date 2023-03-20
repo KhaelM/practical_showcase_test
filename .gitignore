@@ -45,3 +45,6 @@ app.*.map.json
 
 # Submodules
 packages/**/pubspec.lock
+
+# MacOs related
+**/macos/Flutter/GeneratedPluginRegistrant.*

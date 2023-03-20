@@ -7,12 +7,24 @@ environment:
   sdk: '>=2.19.3 <3.0.0'
 
 dependencies:
+  bloc: ^8.1.1
+  bloc_concurrency: ^0.2.1
+  cached_network_image: ^3.2.3
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
+  http: ^0.13.5
+  jsonplaceholder_api:
+    path: packages/jsonplaceholder_api
+  meta: ^1.8.0
+  online_jsonplaceholder_api:
+    path: packages/online_jsonplaceholder_api
+  stream_transform: ^2.1.0
+  jsonplaceholder_repository:
+    path: packages/jsonplaceholder_repository
 
 dev_dependencies:
-  bloc: ^8.1.1
-  flutter_bloc: ^8.1.2
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
