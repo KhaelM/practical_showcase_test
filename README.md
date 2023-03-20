@@ -8,3 +8,11 @@ Run this project with
   flutter pub get
   flutter run --release
 ```
+
+## Test coverage
+
+Watch coverage score with
+
+```bash
+  flutter test --coverage
+```
