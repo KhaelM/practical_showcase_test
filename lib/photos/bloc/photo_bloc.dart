@@ -20,8 +20,10 @@ EventTransformer<E> throttleDroppable<E>(Duration duration) {
 
 class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
   PhotoBloc(
-    this._jsonplaceholderRepository,
-  ) : super(const PhotoState()) {
+    this._jsonplaceholderRepository, {
+    int itemPerScroll = 20,
+  })  : _itemPerScroll = itemPerScroll,
+        super(const PhotoState()) {
     on<PhotoFetched>(
       _onPhotoFetched,
       transformer: throttleDroppable(throttleDuration),
@@ -37,7 +39,7 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
   List<Jsonplaceholder> _allData = [];
   List<Jsonplaceholder> _currentData = [];
   int _itemsLength = 0;
-  static const _itemPerScroll = 20;
+  final int _itemPerScroll;
 
   _onFilterRequested(
     FilterRequested event,
@@ -74,27 +76,26 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
       if (state.status == PhotoStatus.initial) {
         _allData = await _jsonplaceholderRepository.getJsonplaceholders();
         _currentData = _allData;
-        _itemsLength = _itemPerScroll;
+        _itemsLength = min(_itemPerScroll, _allData.length);
         return emit(state.copyWith(
           status: PhotoStatus.success,
-          photos: _currentData.sublist(0, _itemPerScroll),
-          hasReachedMax: false,
+          photos: _currentData.sublist(0, _itemsLength),
+          hasReachedMax: _allData.length <= _itemPerScroll ? true : false,
         ));
       }
 
       bool noMoreData = false;
       _itemsLength += _itemPerScroll;
       if (_itemsLength >= _currentData.length) {
+        _itemsLength = _currentData.length;
         noMoreData = true;
       }
       await Future.delayed(const Duration(seconds: 2));
-      emit(noMoreData
-          ? state.copyWith(hasReachedMax: true)
-          : state.copyWith(
-              status: PhotoStatus.success,
-              photos: _currentData.sublist(0, _itemsLength),
-              hasReachedMax: false,
-            ));
+      emit(state.copyWith(
+        status: PhotoStatus.success,
+        photos: _currentData.sublist(0, _itemsLength),
+        hasReachedMax: noMoreData ? true : false,
+      ));
     } catch (_) {
       emit(state.copyWith(status: PhotoStatus.failure));
     }
