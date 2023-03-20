@@ -74,7 +74,7 @@ class PhotoBloc extends Bloc<PhotoEvent, PhotoState> {
       if (state.status == PhotoStatus.initial) {
         _allData = await _jsonplaceholderRepository.getJsonplaceholders();
         _currentData = _allData;
-        _itemsLength = _currentData.length;
+        _itemsLength = _itemPerScroll;
         return emit(state.copyWith(
           status: PhotoStatus.success,
           photos: _currentData.sublist(0, _itemPerScroll),

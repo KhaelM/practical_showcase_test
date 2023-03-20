@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "practical_showcase_test",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "practical_showcase_test (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "practical_showcase_test (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "jsonplaceholder_api",
+            "cwd": "packages\\jsonplaceholder_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "jsonplaceholder_repository",
+            "cwd": "packages\\jsonplaceholder_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "online_jsonplaceholder_api",
+            "cwd": "packages\\online_jsonplaceholder_api",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
