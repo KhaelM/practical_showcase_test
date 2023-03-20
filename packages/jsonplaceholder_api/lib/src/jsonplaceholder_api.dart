@@ -8,5 +8,11 @@ abstract class JsonplaceholderApi {
   const JsonplaceholderApi();
 
   /// Provides a [Future] of all jsonplaceholders.
+  ///
+  /// Throws a [ServerDownException] when response code
+  /// differs from 200
   Future<List<Jsonplaceholder>> getJsonplaceholders();
 }
+
+/// Error thrown when server response is unexpected.
+class ServerDownException implements Exception {}
