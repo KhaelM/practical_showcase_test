@@ -22,6 +22,9 @@ class OnlineJsonplaceholderApi extends JsonplaceholderApi {
       '/photos',
     );
     final response = await _httpClient.get(url);
+    if (response.statusCode != 200) {
+      throw ServerDownException();
+    }
     return List<Map<dynamic, dynamic>>.from(
       json.decode(response.body) as List,
     )
