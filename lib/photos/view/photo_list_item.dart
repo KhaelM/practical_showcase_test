@@ -1,20 +1,25 @@
 part of 'photos_view.dart';
 
 class _PhotoListItem extends StatelessWidget {
-  const _PhotoListItem({required this.jsonplaceholder});
+  const _PhotoListItem({required this.jsonplaceholder, required this.index});
 
   final Jsonplaceholder jsonplaceholder;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: GestureDetector(
-        onTap: () {
-          context.read<PhotoDetailsBloc>().add(PhotoSelected(jsonplaceholder));
-          Navigator.of(context).pushNamed(Navigation.photosDetailRoute);
-        },
+    return InkWell(
+      key: Key("jsonplaceholder$index"),
+      onTap: () {
+        context
+            .read<PhotoDetailsBloc>()
+            .add(PhotoSelected(jsonplaceholder: jsonplaceholder));
+        Navigator.of(context).pushNamed(Navigation.photosDetailRoute);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(

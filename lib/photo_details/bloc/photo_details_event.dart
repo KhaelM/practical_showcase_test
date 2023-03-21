@@ -1,12 +1,10 @@
 part of 'photo_details_bloc.dart';
 
-abstract class PhotoDetailsEvent {
+class PhotoDetailsEvent {
   const PhotoDetailsEvent();
 }
 
 class PhotoSelected extends PhotoDetailsEvent {
   final Jsonplaceholder jsonplaceholder;
-  const PhotoSelected(
-    this.jsonplaceholder,
-  );
+  const PhotoSelected({required this.jsonplaceholder});
 }

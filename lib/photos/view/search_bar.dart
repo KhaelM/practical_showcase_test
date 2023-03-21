@@ -13,6 +13,7 @@ class _SearchBar extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                key: const Key("SearchBar"),
                 onChanged: (value) {
                   context
                       .read<PhotoBloc>()
