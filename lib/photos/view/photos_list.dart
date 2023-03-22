@@ -22,16 +22,20 @@ class _PhotosListState extends State<_PhotosList> {
       builder: (context, state) {
         switch (state.status) {
           case PhotoStatus.failure:
-            return const Center(child: Text('failed to fetch photos'));
+            return const Center(child: Text('Failed to fetch photos'));
           case PhotoStatus.success:
             if (state.photos.isEmpty) {
-              return const Center(child: Text('no photos'));
+              return const Center(child: Text('No photos'));
             }
             return ListView.builder(
+              key: const Key('ListViewKey'),
               itemBuilder: (BuildContext context, int index) {
                 return index >= state.photos.length
                     ? const _BottomLoader()
-                    : _PhotoListItem(jsonplaceholder: state.photos[index]);
+                    : _PhotoListItem(
+                        jsonplaceholder: state.photos[index],
+                        index: index,
+                      );
               },
               itemCount: state.hasReachedMax
                   ? state.photos.length
